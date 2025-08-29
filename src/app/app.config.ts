@@ -5,12 +5,12 @@ import { provideToastr } from 'ngx-toastr';
 import { provideSpinnerConfig } from 'ngx-spinner';
 
 import { routes } from './app.routes';
-import { environment } from '../environments/environment';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getStorage, provideStorage } from '@angular/fire/storage';   // ✅ Storage import किया
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { environment } from '../environments/environment.development';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,6 +22,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideHttpClient(),
     provideAuth(() => getAuth()),
-    provideStorage(() => getStorage()),   // ✅ Storage provider add किया
+    provideStorage(() => getStorage()),
   ]
 };
